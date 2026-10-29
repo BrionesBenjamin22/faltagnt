@@ -1,68 +1,178 @@
-# Hacha y Tiza (HyT)
+# Falta Gnt
 
 Para ejecutar la aplicación localmente, seguir el [instructivo de desarrollo](#levantar-el-proyecto-en-desarrollo).
 
-## Mis amigos son unos loros, y siempre renegamos para rescatar gente para el fulbito.
+## Siempre falta gente para jugar
 
-Una idea simple: me faltan 4 para un fútbol 6 en Megaestadio, 1 y 63. El que quiera jugar puede reservar su lugar, y el de su compañero si quiere llevar a alguien.
+Falta Gnt nace para resolver una necesidad concreta: **conectar partidos deportivos que necesitan participantes con personas que tienen ganas de jugar**.
 
-HyT nace para resolver una necesidad concreta: **reclutar jugadores para completar los lugares necesarios para una cancha, sin que tengan que ser conocidos entre sí**.
+La idea es simple:
 
-El problema lo tiene cualquiera que organice partidos de fútbol y dependa siempre del mismo grupo de gente. Hay días en los que conseguir jugadores se vuelve más difícil por horarios, compromisos o incluso por partidos importantes. Por ejemplo, un martes a las 22:00 puede jugar Boca por Copa y varios de los que normalmente juegan pueden bajarse, mientras que otras personas que sí están disponibles podrían ocupar esos lugares.
+> Ya tenés el partido, el lugar y el horario. Te faltan personas. Publicás los lugares disponibles y cualquier usuario interesado puede reservar uno o más lugares para sumarse.
 
-La idea es simplemente conectar esas dos situaciones.
+El problema no es exclusivo del fútbol. Puede pasar en un fútbol 5, un partido de pádel, básquet, vóley o cualquier otro deporte donde exista un encuentro organizado con lugares por completar.
 
-> Yo, Benjamín, quiero jugar al fútbol, pero mis amigos se ortivan y no junto jugadores. Reservo la cancha, publico que tengo 6 lugares disponibles y cualquier persona interesada puede reservar uno o más lugares para jugar.
+La plataforma busca conectar esas dos situaciones:
 
-## Buena fe y respeto por el fútbol ajeno
+- alguien organiza un partido y necesita completar lugares;
+- otra persona quiere practicar un deporte y busca dónde sumarse.
 
-Cualquier persona puede reservar.
+El deporte pertenece al partido, no al usuario. Una misma persona puede organizar fútbol un día, sumarse a un partido de pádel otro y buscar básquet durante el fin de semana.
 
-La primera versión de HyT se basa en algo muy simple: la buena fe de la gente.
+## Buena fe y respeto por el partido ajeno
 
-> **Cualquier persona puede reservar, me debo a la buena fe de la gente y el respeto por el fútbol ajeno. En la tierra de Maradona no bardeen con el fútbol ajeno.**
+Cualquier persona registrada puede reservar un lugar disponible.
 
-Si reservás, la idea es que vayas.
+La primera versión de Falta Gnt se basa en algo muy simple: la buena fe de la comunidad.
 
-Si no podés ir, avisá con tiempo.
+> **Si reservás, comprometete a ir. Si no podés, avisá con tiempo. El partido ajeno se respeta.**
 
-No reserves lugares porque sí y no te bajes 30 minutos antes si podés evitarlo.
+No reserves lugares que no vas a utilizar.
 
-La aplicación no busca complicar algo que debería ser sencillo. El objetivo es facilitar que un partido se complete y que gente que no se conoce pueda jugar junta.
+No te bajes a último momento si podés evitarlo.
+
+Respetá al organizador, a quienes se anotaron y las condiciones publicadas del partido.
+
+La aplicación no busca complicar algo que debería ser sencillo. El objetivo es facilitar que un encuentro deportivo se complete y que personas que no se conocen puedan jugar juntas.
+
+A futuro, la plataforma podrá registrar cancelaciones tardías y utilizar esa información para mecanismos de reputación o convivencia. Esa política no forma parte del alcance inicial.
 
 ## Qué busca resolver
 
-HyT apunta únicamente a este flujo:
+Falta Gnt apunta a este flujo principal:
 
-1. Alguien reserva una cancha.
-2. Le faltan jugadores.
-3. Publica cuántos lugares tiene disponibles.
-4. Otra persona entra a Hacha y Tiza.
-5. Encuentra el partido.
-6. Reserva uno o más lugares.
-7. Va a jugar.
+1. Alguien organiza un partido.
+2. Elige el deporte.
+3. Define lugar, fecha, horario, precio y lugares disponibles.
+4. Publica el partido.
+5. Otra persona entra a Falta Gnt.
+6. Busca partidos por localidad, deporte y fecha.
+7. Encuentra uno que le interesa.
+8. Reserva uno o más lugares.
+9. Va a jugar.
 
-Nada más.
+La idea central puede resumirse así:
 
-Al menos al principio.
+> **Publicar → descubrir → reservar → jugar.**
+
+El deporte cambia el contexto del partido, pero no el flujo principal.
+
+## Alcance multideporte
+
+Cada partido está asociado a un deporte.
+
+Ejemplos iniciales:
+
+- Fútbol
+- Pádel
+- Básquet
+- Vóley
+- Tenis
+
+Un deporte puede tener formatos o modalidades propias cuando sea necesario.
+
+Por ejemplo:
+
+```text
+Fútbol
+├── Fútbol 5
+├── Fútbol 6
+└── Fútbol 7
+
+Básquet
+├── 3x3
+└── 5x5
+
+Pádel
+├── Dobles
+└── Individual
+```
+
+El objetivo no es implementar reglas particulares para todos los deportes desde el comienzo, sino mantener un dominio común para:
+
+- publicación de partidos;
+- descubrimiento;
+- reservas;
+- acompañantes;
+- cancelaciones;
+- participación;
+- lista de espera;
+- notificaciones.
+
+Las reglas específicas de cada deporte se incorporarán únicamente cuando exista una necesidad real.
+
+## Funciones principales del MVP
+
+El alcance funcional contempla:
+
+- registro e inicio de sesión;
+- verificación y recuperación de cuenta;
+- perfil editable;
+- localidad principal;
+- búsqueda temporal en otras localidades;
+- catálogo de deportes;
+- filtrado de partidos por deporte, localidad y fecha;
+- publicación de partidos;
+- asociación de cada partido a un deporte;
+- formatos deportivos opcionales;
+- reserva de uno o más lugares;
+- acompañantes opcionales;
+- cancelación de reservas;
+- cancelación de partidos;
+- lista de espera para partidos completos;
+- consulta de partidos organizados y reservados;
+- historial;
+- notificaciones relevantes;
+- reglas comunitarias.
+
+Un usuario no tiene un rol global de jugador u organizador.
+
+La relación depende de cada partido:
+
+```text
+User
+  ├── ORGANIZER en un partido
+  └── PLAYER en otro
+```
 
 ## Idea a futuro
 
-A futuro estaría buenísimo que las propias canchas puedan utilizar Hacha y Tiza para ofrecer sus servicios, publicar disponibilidad o integrarse al flujo de reservas.
+A futuro podrían incorporarse funciones relacionadas con:
+
+- complejos y espacios deportivos;
+- disponibilidad de canchas;
+- reservas de instalaciones;
+- reputación;
+- torneos;
+- ligas;
+- perfiles deportivos más completos;
+- estadísticas específicas por deporte.
 
 Pero eso viene después.
 
 Primero hay que resolver bien algo mucho más simple:
 
-> **Me faltan jugadores. Publico los lugares. Alguien los reserva. Jugamos.**
+> **Hay un partido. Faltan personas. Publico los lugares. Alguien los reserva. Jugamos.**
 
-Soñar es gratis.
+## Estado actual del desarrollo
 
-## Desarrollo de la vertical slice
+La vertical slice actual implementa registro y login local, sesión segura, verificación de email, recuperación de contraseña y descubrimiento de partidos por localidad.
 
-La aplicación implementa registro y login local, sesión segura, verificación de email, recuperación de contraseña y descubrimiento de partidos por localidad. La selección temporal del Home es independiente de la localidad principal del perfil. Google y las reservas quedan para etapas posteriores.
+La selección temporal del Home es independiente de la localidad principal del perfil.
 
 La segunda iteración agrega edición del perfil con historial privado, cambio de contraseña con cierre de todas las sesiones, localidades buscables, navegación de cuenta y temas claro, oscuro y sistema.
+
+La evolución multideporte modifica el modelo objetivo del producto:
+
+```text
+Match
+→ Sport
+→ SportFormat?
+```
+
+La asociación de partidos a deportes, los filtros por deporte y el flujo de publicación forman parte de las próximas iteraciones del producto. El núcleo existente de autenticación, ubicación y descubrimiento se conserva.
+
+Google OAuth y las reservas continúan fuera de la vertical slice actualmente implementada.
 
 - [Backend: configuración, persistencia y contratos](apps/api/VERTICAL-SLICE.md).
 - [Backend: perfil e historial privado](apps/api/PROFILE.md).
@@ -118,6 +228,8 @@ RESEND_API_KEY=
 EMAIL_FROM=
 ```
 
+> **Nota:** los identificadores internos `hyt` se mantienen mientras sigan siendo los utilizados por la configuración actual del proyecto. El cambio de nombre comercial a Falta Gnt no requiere renombrar inmediatamente usuarios, bases o volúmenes internos.
+
 Los valores entre `<...>` son marcadores: reemplazarlos. `DATABASE_URL` debe coincidir con el usuario, contraseña, puerto y base configurados para Docker. Si la contraseña contiene caracteres especiales, codificarla para su uso dentro de una URL.
 
 `JWT_SECRET` y `CSRF_SECRET` deben ser distintos y tener al menos 32 caracteres. Para generar cada valor localmente, ejecutar este comando por separado; también puede usarse para generar una contraseña de base sin caracteres especiales:
@@ -167,6 +279,8 @@ pnpm --filter api exec node --env-file=.env --import tsx prisma/seed.ts --develo
 
 Los seeds son idempotentes. Estos comandos cargan explícitamente `apps/api/.env` porque el seed no inicia Nest ni carga sus variables automáticamente. Los datos ficticios son exclusivos de desarrollo; no ejecutar `--development` contra producción.
 
+Cuando el catálogo multideporte esté implementado, los seeds deberán incorporar también los deportes y formatos activos definidos para el MVP.
+
 ### 4. Iniciar API y frontend
 
 Abrir dos terminales en la raíz del repositorio y mantenerlas abiertas.
@@ -192,14 +306,25 @@ pnpm dev:web
 
 Usar **`localhost`** para acceder desde el navegador: las cookies de sesión mantienen `Secure` también en desarrollo. No intercambiarlo con `127.0.0.1` ni con la IP de la red sin configurar HTTPS y los orígenes correspondientes.
 
-### 5. Probar el flujo
+### 5. Probar el flujo actualmente implementado
 
 1. Abrir la aplicación y seleccionar **Crear cuenta**.
 2. Completar nombre, email y una contraseña de entre 8 y 128 caracteres (mínimo temporal autorizado).
 3. Buscar **Tolosa** y seleccionarla como localidad principal.
 4. Registrarse: se inicia sesión y aparece el Home con los partidos de Tolosa.
 5. Cambiar temporalmente el selector a **City Bell** para comprobar que cambia el listado sin modificar el perfil.
-6. Desde **Cuenta**, acceder al perfil, seguridad, apariencia o cerrar sesión. Al ingresar nuevamente, el filtro inicial vuelve a la localidad principal.
+6. Desde **Cuenta**, acceder al perfil, seguridad, apariencia o cerrar sesión.
+7. Al ingresar nuevamente, el filtro inicial vuelve a la localidad principal.
+
+Cuando la iteración multideporte esté implementada, este flujo deberá ampliarse para validar:
+
+```text
+localidad
+→ deporte
+→ listado filtrado
+→ publicación de partido
+→ reserva
+```
 
 ### Detener y volver a iniciar
 
